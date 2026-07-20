@@ -1,4 +1,5 @@
 Install NixOS
+
     $ git clone <repo>
     $ cd nixy-dotfile-sonako
     $ cp your hardware.config
