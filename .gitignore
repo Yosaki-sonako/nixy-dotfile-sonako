@@ -1,0 +1,11 @@
+result
+result-*
+
+*.swp
+*.swo
+*~
+
+.direnv/
+.cache/
+
+.DS_Store

@@ -2,35 +2,35 @@
 
 {
   programs.nixvim = {
-  enable = true;
+    enable = true;
 
-	nixpkgs.source = inputs.nixpkgs;
+    nixpkgs.source = inputs.nixpkgs;
 
-  extraPackages = with pkgs; [
+    extraPackages = with pkgs; [
       nixfmt-rfc-style # 官方标准的 RFC-166 Nix 代码格式化工具
-  ];
-	opts ={
-	   number = true;
-	   relativenumber = true;
-	   shiftwidth = 2;
-	   tabstop = 2;
-	   expandtab = true;
-	   smartindent = true;
-	   ignorecase = true;
-	   termguicolors = true;
-	};
-	globals.mapleader = " ";
-	colorschemes.tokyonight = {
-	   enable = true;
-	   settings = {
-	      style = "moon";
-	   };
-   };
+    ];
+    opts = {
+      number = true;
+      relativenumber = true;
+      shiftwidth = 2;
+      tabstop = 2;
+      expandtab = true;
+      smartindent = true;
+      ignorecase = true;
+      termguicolors = true;
+    };
+    globals.mapleader = " ";
+    colorschemes.tokyonight = {
+      enable = true;
+      settings = {
+        style = "moon";
+      };
+    };
 
-   	plugins = {
-	   treesitter.enable = true;
-     transparent.enable = true;
-     alpha = {
+    plugins = {
+      treesitter.enable = true;
+      transparent.enable = true;
+      alpha = {
         enable = true;
         settings = {
           layout = [
@@ -68,7 +68,12 @@
                   on_press.__raw = "function() vim.cmd('ene | startinsert') end";
                   opts = {
                     position = "center";
-                    keymap = [ "n" "e" "<cmd>ene | startinsert<cr>" { desc = "New file"; } ];
+                    keymap = [
+                      "n"
+                      "e"
+                      "<cmd>ene | startinsert<cr>"
+                      { desc = "New file"; }
+                    ];
                     shortcut = "e";
                     width = 30;
                     align_shortcut = "right";
@@ -81,7 +86,12 @@
                   on_press.__raw = "function() vim.cmd('Telescope find_files') end";
                   opts = {
                     position = "center";
-                    keymap = [ "n" "f" "<cmd>Telescope find_files<cr>" { desc = "Find file"; } ];
+                    keymap = [
+                      "n"
+                      "f"
+                      "<cmd>Telescope find_files<cr>"
+                      { desc = "Find file"; }
+                    ];
                     shortcut = "SPC f f";
                     width = 30;
                     align_shortcut = "right";
@@ -93,20 +103,20 @@
           ];
         };
       };
-     lualine = {
+      lualine = {
         enable = true;
         settings = {
           options = {
             theme = "tokyonight";
           };
-           sections = {
-           lualine_x = [
+          sections = {
+            lualine_x = [
               "encoding"
               {
                 __unkeyed-1 = "fileformat";
                 symbols = {
                   unix = "";
-                  };
+                };
               }
               "filetype"
             ];
@@ -125,40 +135,37 @@
           };
         };
       };
-	   telescope = {
-	      enable = true;
-	      keymaps = {
-	          "<leader>ff" = "find_files";
-            "<leader>fg" = "live_grep";
-	      };
-	};
-	neo-tree = {
-	    enable = true;
-	    settings = {
-	    	  close_if_last_window = true;  
-	    };
-	};
-	lsp = {
-	    enable = true;
-	    servers = {
-		nixd.enable = true;
-	  };
-	keymaps.lspBuf = {
-	    "k" = "hover";
-	    "gd" = "definition";
-	     };
-     };
+      telescope = {
+        enable = true;
+        keymaps = {
+          "<leader>ff" = "find_files";
+          "<leader>fg" = "live_grep";
+        };
+      };
+      neo-tree = {
+        enable = true;
+        settings = {
+          close_if_last_window = true;
+        };
+      };
+      lsp = {
+        enable = true;
+        servers = {
+          nixd.enable = true;
+        };
+        keymaps.lspBuf = {
+          "k" = "hover";
+          "gd" = "definition";
+        };
+      };
     };
-	keymaps = [
-	  {
-	     mode = "n";
-	     key = "<leader>e";
-	     action = ":Neotree toggle<R>";
-	     options.silent = true;
-	  }
-  ];
- };
+    keymaps = [
+      {
+        mode = "n";
+        key = "<leader>e";
+        action = ":Neotree toggle<R>";
+        options.silent = true;
+      }
+    ];
+  };
 }
-
-
-	
