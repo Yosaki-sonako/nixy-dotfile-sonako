@@ -3,8 +3,8 @@
 {
   imports = [
     ../modules/fcitx5.nix
-    ../modules/niri.nix
-    ../modules/kitty.nix
+    ../modules/system/niri.nix
+    ../modules/system/kitty.nix
   ];
 
   environment.systemPackages = with pkgs; [

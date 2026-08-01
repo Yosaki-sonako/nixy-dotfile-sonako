@@ -7,10 +7,10 @@
     ../sonako/fcitx5-rime.nix
     ../sonako/konsole.nix
 
-    ../modules/nixvim.nix
-    ../modules/git.nix
-    ../modules/fish.nix
-    ../modules/vsc.nix
+    ../modules/home/nixvim.nix
+    ../modules/home/git.nix
+    ../modules/home/fish.nix
+    ../modules/home/vsc.nix
   ];
 
   nixpkgs.config.allowUnfree = true;

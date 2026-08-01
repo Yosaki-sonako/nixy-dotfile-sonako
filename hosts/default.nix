@@ -4,7 +4,7 @@
   imports = [
     ../hardware-xiaoxin.nix
     ../configuration.nix
-    ../modules/fonts.nix
+    ../modules/system/fonts.nix
     ./modules.nix
   ];
 
