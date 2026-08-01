@@ -1,10 +1,14 @@
-{ inputs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   programs.nixvim = {
   enable = true;
 
 	nixpkgs.source = inputs.nixpkgs;
+
+  extraPackages = with pkgs; [
+      nixfmt-rfc-style # 官方标准的 RFC-166 Nix 代码格式化工具
+  ];
 	opts ={
 	   number = true;
 	   relativenumber = true;
@@ -106,6 +110,18 @@
               }
               "filetype"
             ];
+          };
+        };
+      };
+      conform-nvim = {
+        enable = true;
+        settings = {
+          format_on_save = {
+            timeout_ms = 500;
+            lsp_fallback = true;
+          };
+          formatters_by_ft = {
+            nix = [ "nixfmt" ];
           };
         };
       };

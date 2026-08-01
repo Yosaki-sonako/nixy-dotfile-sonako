@@ -2,21 +2,26 @@
 { pkgs, lib, ... }:
 
 {
-  imports = [ 
+  imports = [
     ../sonako/fastfetch.nix
+    ../sonako/fcitx5-rime.nix
+    ../sonako/konsole.nix
+
     ../modules/nixvim.nix
     ../modules/git.nix
     ../modules/fish.nix
+    ../modules/vsc.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
   home.username = "sonako";
   home.homeDirectory = "/home/sonako";
 
-  home.stateVersion = "26.05"; 
+  home.stateVersion = "26.05";
   home.packages = with pkgs; [
     qq
     qqmusic
+    obs-studio
 
     papirus-icon-theme
     papirus-folders
@@ -29,20 +34,14 @@
   };
   home.activation = {
     refreshkdeMenu = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    $DRY_RUN_CMD ${pkgs.kdePackages.kservice}/bin/kbuildsycoca6 || true 
+      $DRY_RUN_CMD ${pkgs.kdePackages.kservice}/bin/kbuildsycoca6 || true 
     '';
   };
-  home.file = {
-      ".local/share/fcitx5/rime/default.custom.yaml".text = ''
-      patch:
-        schema_list:
-          - schema: luna_pinyin_simp        
-        "menu/page_size": 7
-    '';
-
-    ".local/share/fcitx5/rime/luna_pinyin_simp.custom.yaml".text = ''
-      patch:
-        "translator/enable_user_dict": true
-    '';
+  home.pointerCursor = {
+    enable = true;
+    gtk.enable = true;
+    package = pkgs.callPackage ../sonako/qogir-cursors.nix { };
+    name = "Qogir";
+    size = 24;
   };
 }

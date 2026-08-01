@@ -2,16 +2,18 @@
 
 {
   imports = [
-    ../hardware-xiaoxin.nix             
+    ../hardware-xiaoxin.nix
     ../configuration.nix
     ../modules/fonts.nix
     ./modules.nix
-    ];
+  ];
 
   networking.hostName = "yosaki-nixos";
-  system.stateVersion = "26.05"; 
-  
+  system.stateVersion = "26.05";
+
   nixpkgs.config.allowUnfree = true;
+  security.pam.services.sddm.enableKwallet = true;
+  services.gnome.gnome-keyring.enable = true;
   environment.systemPackages = with pkgs; [
     # neovim
     vim

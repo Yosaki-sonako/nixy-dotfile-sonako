@@ -1,5 +1,5 @@
 # ~/nixy-sonako/sonako/fastfetch.nix
-{ pkgs, ... }:
+{ ... }:
 
 {
   programs.fastfetch = {
@@ -14,7 +14,10 @@
       };
       
       display = {
-        color = "cyan";    
+        color = {
+          tile = "cyan";
+          key = "blue";
+        };
         separator = " - ";
       };
       
@@ -28,16 +31,16 @@
         "shell"
         "de"
         "wm"
-	"font"
+	      "font"
         "terminal"
         "cpu"
         "gpu"
-	"disk"
+	      "disk"
         "memory"
-	"swap"
-	"battery"
+	      "swap"
+	      "battery"
         "break"
-	"colors"
+      	"colors"
       ];
     };
   };
