@@ -4,7 +4,7 @@
 {
   programs.fastfetch = {
     enable = true;
-
+    
     settings = {
       logo = {
         source = "nixos";
@@ -12,7 +12,7 @@
           right = 2;
         };
       };
-
+      
       display = {
         color = {
           tile = "cyan";
@@ -20,7 +20,7 @@
         };
         separator = " - ";
       };
-
+      
       modules = [
         "title"
         "separator"
@@ -31,16 +31,16 @@
         "shell"
         "de"
         "wm"
-        "font"
+	      "font"
         "terminal"
         "cpu"
         "gpu"
-        "disk"
+	      "disk"
         "memory"
-        "swap"
-        "battery"
+	      "swap"
+	      "battery"
         "break"
-        "colors"
+      	"colors"
       ];
     };
   };

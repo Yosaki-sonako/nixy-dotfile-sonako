@@ -6,7 +6,7 @@
   ];
   environment.etc."xdg/kitty/kitty.conf".text = ''
     font_family      JetBrainsMono Nerd Font
-    font_size        12.0
+    font_size        16.0
 
     shell fish
 

@@ -28,6 +28,7 @@
     tree
     unzip
     unrar-free
+    nixd
   ];
 
   boot.loader.grub = {

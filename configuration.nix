@@ -1,10 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  username,
-  ...
-}:
+{ config, lib, pkgs, username, ... }:
 
 let
   useNetworkManager = true;
@@ -48,22 +42,18 @@ in
   };
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
-
+  
   nix = {
     settings = {
       download-attempts = 15;
-      experimental-features = [
+      experimental-features = [ 
         "nix-command"
         "flakes"
-      ];
-    };
+        ];
+      };
   };
 
   users.users.sonako = {
     isNormalUser = true;
-    extraGroups = [
-      "wheel"
-      "networkmanager"
-    ];
-  };
+    extraGroups = [ "wheel" "networkmanager" ];  };
 }

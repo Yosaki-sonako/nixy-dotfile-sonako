@@ -15,7 +15,6 @@
     settings = {
       user = {
         name = "Yosaki-sonako";
-        email = "yosakisonako@gmail.com";
       };
 
       core = {

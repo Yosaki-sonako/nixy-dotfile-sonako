@@ -7,7 +7,7 @@
     nixpkgs.source = inputs.nixpkgs;
 
     extraPackages = with pkgs; [
-      nixfmt-rfc-style # 官方标准的 RFC-166 Nix 代码格式化工具
+      nixfmt-rfc-style
     ];
     opts = {
       number = true;
@@ -164,6 +164,12 @@
         mode = "n";
         key = "<leader>e";
         action = ":Neotree toggle<R>";
+        options.silent = true;
+      }
+      {
+        mode = "n";
+        key = "<leader>fm";
+        action = "<cmd>lua require('conform').format({ async = true, lsp_fallback = true })<CR>";
         options.silent = true;
       }
     ];
