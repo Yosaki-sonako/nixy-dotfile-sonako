@@ -27,7 +27,7 @@
       username = "sonako";
     in
     {
-      formatter.${system} = pkgs.nixfmt-rfc-style;
+      formatter.${system} = pkgs.nixfmt;
 
       nixosConfigurations.yosaki-nixos = nixpkgs.lib.nixosSystem {
         inherit system;

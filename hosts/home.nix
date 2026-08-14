@@ -25,12 +25,38 @@
 
     papirus-icon-theme
     papirus-folders
+    ayugram-desktop
   ];
   xdg.dataFile = {
     "v2rayN/bin/sing_box/sing-box".source = "${pkgs.sing-box}/bin/sing-box";
     "v2rayN/bin/xray/xray".source = "${pkgs.xray}/bin/xray";
     "v2rayN/bin/geoip.dat".source = "${pkgs.v2ray-geoip}/share/v2ray/geoip.dat";
     "v2rayN/bin/geosite.dat".source = "${pkgs.v2ray-domain-list-community}/share/v2ray/geosite.dat";
+  };
+  xdg.desktopEntries = {
+    qq = {
+      name = "QQ";
+      icon = "qq";
+      comment = "Tencent QQ";
+      terminal = false;
+      categories = [
+        "Network"
+        "InstantMessaging"
+      ];
+      exec = "env PULSE_LATENCY_MSEC=30 qq --audio-buffer-size=2048 %U";
+    };
+    "com.ayugram.desktop" = {
+      name = "AyuGram Desktop";
+      exec = "AyuGram -- %u";
+      icon = "Acom.ayugram.desktop";
+      comment = "AyuGram Desktop Telegram Client";
+      terminal = false;
+      categories = [
+        "Network"
+        "InstantMessaging"
+        "Chat"
+      ];
+    };
   };
   home.activation = {
     refreshkdeMenu = lib.hm.dag.entryAfter [ "writeBoundary" ] ''

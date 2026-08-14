@@ -7,7 +7,7 @@
     nixpkgs.source = inputs.nixpkgs;
 
     extraPackages = with pkgs; [
-      nixfmt-rfc-style
+      nixfmt
     ];
     opts = {
       number = true;

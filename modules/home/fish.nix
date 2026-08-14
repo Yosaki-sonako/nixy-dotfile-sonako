@@ -24,7 +24,7 @@
       cl = "clear";
       sysrebuild = "git -C ~/nixy-sonako add . && sudo nixos-rebuild switch --flake ~/nixy-sonako";
 
-      rebuild = ''git -C ~/nixy-sonako add . && nix run nixpkgs#home-manager -- switch --flake ~/nixy-sonako#sonako && sh -c 'echo "---- User Changes (Home Manager) ----"; if [ -d /nix/var/nix/profiles/per-user/sonako ]; then PATHS=$(ls -d /nix/var/nix/profiles/per-user/sonako/home-manager-*-link 2>/dev/null); else PATHS=$(ls -d $HOME/.local/state/nix/profiles/home-manager-*-link 2>/dev/null); fi; if [ -n "$PATHS" ]; then nvd diff $(echo "$PATHS" | tail -2); fi' '';
+      rebuild = "git -C ~/nixy-sonako add . && nix run nixpkgs#home-manager -- switch --flake ~/nixy-sonako#sonako";
 
       sysdiff = ''sh -c 'echo "---- Software Version Changes (nvd) ----" && nvd diff $(ls -d /nix/var/nix/profiles/system-*-link | tail -2) && echo "---- Disk Changes (Size) ----" && nix store diff-closures $(ls -d /nix/var/nix/profiles/system-*-link | tail -2)' '';
     };

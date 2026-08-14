@@ -13,22 +13,22 @@
       ];
 
       userSettings = {
-        "workbench.colorTheme" = "Tokyo Night"; 
+        "workbench.colorTheme" = "Tokyo Night";
         "editor.fontFamily" = "'JetBrainsMono Nerd Font', 'JetBrains Mono', monospace";
         "editor.fontSize" = 14;
         "editor.fontLigatures" = true;
 
         "editor.tokenColorCustomizations" = {
-            "comments" = { 
-            "foreground" = "#565f89"; 
-            "fontStyle" = "italic"; 
+          "comments" = {
+            "foreground" = "#565f89";
+            "fontStyle" = "italic";
           };
           "functions" = "#7aa2f7";
           "keywords" = "#bb9af7";
-          "strings" = "#9ece6a";     
-          "numbers" = "#ff9e64";     
-          "variables" = "#7dcfff";   
-          "types" = "#e0af68";       
+          "strings" = "#9ece6a";
+          "numbers" = "#ff9e64";
+          "variables" = "#7dcfff";
+          "types" = "#e0af68";
         };
 
         "editor.bracketPairColorization.enabled" = true;
@@ -40,7 +40,7 @@
         "nix.serverSettings" = {
           "nixd" = {
             "formatting" = {
-              "command" = [ "nixfmt" ];
+              "command" = [ "${pkgs.nixfmt}/bin/nixfmt" ];
             };
           };
         };
