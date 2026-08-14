@@ -26,6 +26,9 @@
     papirus-icon-theme
     papirus-folders
     ayugram-desktop
+
+    codex
+    cc-switch
   ];
   xdg.dataFile = {
     "v2rayN/bin/sing_box/sing-box".source = "${pkgs.sing-box}/bin/sing-box";

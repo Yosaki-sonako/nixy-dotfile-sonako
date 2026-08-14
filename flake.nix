@@ -2,7 +2,8 @@
   description = "Sonako's Modular NixOS Flake Configuration";
 
   inputs = {
-    nixpkgs.url = "git+https://github.com/nixos/nixpkgs.git?ref=nixos-unstable";
+    nixpkgs.url = "git+https://github.com/nixos/nixpkgs.git?ref=nixos-unstable&shallow=1";
+    # nixpkgs.url = "git+https://github.com/nixos/nixpkgs.git?ref=nixos-unstable";
     home-manager = {
       url = "git+https://github.com/nix-community/home-manager.git";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -42,7 +43,7 @@
         extraSpecialArgs = { inherit inputs username; };
         modules = [
           ./hosts/home.nix
-          nixvim.homeManagerModules.nixvim
+          nixvim.homeModules.nixvim
         ];
       };
     };
